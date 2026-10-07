@@ -90,6 +90,84 @@ SCENE 1 "Sign-in"
 END SCENE
 ```
 
+## Use-case diagram
+
+Use for a concise view of user goals within a system boundary. Represent actors
+as external text labels unless the app's current icon registry provides a
+verified actor symbol; the DSL does not define a dedicated UML actor shape.
+
+```text
+// Purpose: Show customer goals inside an online-store system boundary.
+// Features used: system boundary, text role, ellipse use cases, association arrows.
+// Validator status: checked with the app pipeline; zero errors and warnings.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1400 800
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "Online store use cases"
+  CREATE boundary AS RECTANGLE
+    POSITION 700 410
+    WIDTH 860
+    HEIGHT 600
+    CORNERS 24
+    FILL #F4F7FA
+    COLOR #455A64
+    TEXT "Online store"
+    SIZE 34
+  END
+
+  CREATE customer AS TEXT
+    POSITION 230 400
+    SIZE 30
+    TEXT "Customer"
+    COLOR #315A72
+  END
+
+  CREATE browse AS ELLIPSE
+    POSITION 470 270
+    WIDTH 250
+    HEIGHT 100
+    FILL #FFFFFF
+    COLOR #315A72
+    TEXT "Browse products"
+    SIZE 28
+  END
+
+  CREATE purchase AS ELLIPSE
+    POSITION 870 270
+    WIDTH 250
+    HEIGHT 100
+    FILL #FFFFFF
+    COLOR #315A72
+    TEXT "Place order"
+    SIZE 28
+  END
+
+  CREATE track AS ELLIPSE
+    POSITION 670 540
+    WIDTH 250
+    HEIGHT 100
+    FILL #FFFFFF
+    COLOR #315A72
+    TEXT "Track delivery"
+    SIZE 28
+  END
+
+  ARROW customer -> browse
+    ROUTE straight
+    HEAD none
+  ARROW customer -> purchase
+    ROUTE elbow
+    HEAD none
+  ARROW customer -> track
+    ROUTE elbow
+    HEAD none
+END SCENE
+```
+
 ## State machine
 
 Use for lifecycle states and explicit transitions. Use `DIAMOND` only when the

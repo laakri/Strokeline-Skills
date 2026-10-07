@@ -52,6 +52,7 @@ authority. This skill guides planning and quality; it does not replace the app.
 - Timing and motion: [animation-and-timing.md](references/animation-and-timing.md)
 - Palette and contrast: [styling-and-theming.md](references/styling-and-theming.md)
 - Reusable diagram/storyboard patterns: [patterns-library.md](references/patterns-library.md)
+- Common invalid/valid pairs: [bad-good-pairs.md](references/bad-good-pairs.md)
 - Multi-scene composition and camera: [scene-composition.md](references/scene-composition.md)
 - Prompt-to-spec planning: [prompt-planning.md](references/prompt-planning.md)
 - Final quality gate: [quality-checklist.md](references/quality-checklist.md)

@@ -9,6 +9,8 @@ layout, and return complete editable source.
 - `skills/strokeline/SKILL.md` — the core workflow and high-priority rules.
 - `skills/strokeline/references/` — verified syntax, diagnostics, layout,
   timing, visual design, patterns, prompt planning, and quality checks.
+- `skills/strokeline/references/bad-good-pairs.md` — common invalid forms and
+  corrected Strokeline syntax.
 - `skills/strokeline/examples/` — complete parser-checked scripts illustrating
   supported patterns.
 - `evals/` — realistic generation prompts and expected output characteristics.

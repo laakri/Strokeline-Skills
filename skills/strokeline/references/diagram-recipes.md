@@ -4,6 +4,7 @@ Use [patterns-library.md](patterns-library.md) for complete starter scripts:
 
 - Architecture diagrams
 - Sequence flows
+- Use-case diagrams
 - State machines
 - Entity-relationship diagrams
 - Org charts

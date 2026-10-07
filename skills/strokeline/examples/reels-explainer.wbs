@@ -1,3 +1,7 @@
+// Purpose: Explain one idea in a short vertical-video scene.
+// Features used: vertical canvas, narration, styled card, scale animation.
+// Validator status: checked with the app pipeline; zero errors and warnings.
+// Remaining warnings: none.
 VERSION 1.0
 CANVAS 1080 1920
 STYLE clean

@@ -64,7 +64,7 @@ When the Strokeline application is available:
 If the app is unavailable, perform a static check and be honest about the
 validation limit. Do not invent a successful parser result.
 
-For code-based repairs, use the [diagnostic playbook](diagnostic-playbook.md).
+For code-based repairs, use the [diagnostics reference](diagnostics.md).
 If a feature's syntax is unclear, prefer a known-valid app example over
 guessing from its keyword name.
 

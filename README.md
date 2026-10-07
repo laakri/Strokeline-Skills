@@ -34,8 +34,11 @@ the Strokeline application. If that application is available, run scripts
 through its parser and validator and resolve every error before delivery. Never
 claim a script was executed or validated unless it actually was.
 
-The validator CLI is in the Strokeline app repository. From the app's `web`
-directory, validate this sibling checkout with:
+The validator CLI is maintained in the Strokeline app repository at
+`web/scripts/validate.mjs`; it is intentionally not duplicated in this skill
+repository. The workflow checks out that app repository into `strokeline/`,
+installs its dependencies, and invokes the checked-out CLI. From the app's
+`web` directory, validate this sibling checkout with:
 
 ```powershell
 node scripts\validate.mjs ..\..\Strokeline-Skills\skills\strokeline\examples ..\..\Strokeline-Skills\evals
@@ -50,8 +53,9 @@ node strokeline/web/scripts/validate.mjs skills/strokeline/examples evals
 
 The GitHub Actions workflow checks out the app's `codex/diagram-authoring`
 branch, installs its `web` dependencies, and validates every `.wbs` file under
-`examples/` and `evals/`. Warnings are reported for review; any non-`W_`
-diagnostic fails validation.
+`skills/strokeline/examples/` and `evals/`. The `evals/` directory currently
+contains Markdown prompts rather than `.wbs` files. Warnings are reported for
+review; any non-`W_` diagnostic fails validation.
 
 See [the maintenance checklist](skills/strokeline/references/maintenance.md)
 before publishing skill updates.

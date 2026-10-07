@@ -5,6 +5,16 @@ description: Create, edit, validate, or explain Strokeline scripts for diagrams,
 
 # Strokeline Script Authoring
 
+## Output contract
+
+A Strokeline script is the app's plain-text `.wbs` DSL, not a video brief.
+When asked to create one, return executable Strokeline source beginning with
+`VERSION 1.0` and `CANVAS width height`, followed by `SCENE` blocks. Use only
+statement and property forms documented in [syntax.md](references/syntax.md)
+or demonstrated in a checked example. Do not replace the script with YAML,
+JSON, a storyboard schema, production metadata, or invented constructs for
+camera shots, fonts, audio tracks, keyframes, or effects.
+
 Use the installed Strokeline parser, compiler, and validator as the syntax
 authority. This skill guides planning and quality; it does not replace the app.
 
@@ -32,8 +42,12 @@ authority. This skill guides planning and quality; it does not replace the app.
 ## Never do
 
 - Invent syntax or treat globally recognized properties as valid everywhere.
+- Return a YAML/JSON video specification or prose storyboard when the user
+  asked for a Strokeline script; metadata is not executable `.wbs` source.
 - Leak Mermaid, PlantUML, pseudocode, or generic drawing syntax into a
   Strokeline script.
+- If the skill/reference cannot be accessed, say so and ask for access or
+  source material instead of guessing a substitute language.
 - Claim validation, preview, or rendering that did not happen.
 - Return partial snippets when the user asks to create or edit a file; return
   the complete source unless they explicitly request a diff/snippet.

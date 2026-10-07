@@ -96,3 +96,38 @@ SCENE 1 "Simple flow"
   ARROW start -> finish
 END SCENE
 ```
+
+## Invented YAML video specification
+
+**Bad — this is metadata, not an executable Strokeline script:**
+
+```yaml
+metadata:
+  aspect_ratio: "16:9"
+scenes:
+  - layout: "centered_hero"
+    camera:
+      movement: "slow_dolly_back"
+    visual_elements:
+      - animation: "kinetic_reveal_by_word"
+```
+
+**Good — use actual Strokeline statements, then add only supported properties:**
+
+```text
+VERSION 1.0
+CANVAS 1920 1080
+SCENE 1 "Opening"
+  SAY "A clear idea starts with a useful question."
+    DURATION 3s
+    TONE hook
+  CREATE title AS TEXT
+    POSITION 960 420
+    SIZE 64
+    MAXWIDTH 1400
+    ALIGN center
+    TEXT "Start with the question"
+    DRAW 0.7s
+  END
+END SCENE
+```

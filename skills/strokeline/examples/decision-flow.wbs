@@ -1,0 +1,70 @@
+VERSION 1.0
+CANVAS 1080 900
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "Review a request"
+  CREATE start AS ELLIPSE
+    POSITION 540 110
+    WIDTH 220
+    HEIGHT 90
+    FILL #E7F4EC
+    COLOR #34734D
+    TEXT "New request"
+  END
+
+  CREATE verify AS RECTANGLE
+    POSITION 540 300
+    WIDTH 300
+    HEIGHT 120
+    CORNERS 20
+    FILL #EDF3F8
+    COLOR #315A72
+    TEXT "Check required details"
+  END
+
+  CREATE complete AS DIAMOND
+    POSITION 540 500
+    WIDTH 270
+    HEIGHT 170
+    FILL #FFF4D8
+    COLOR #725112
+    TEXT "Details complete?"
+  END
+
+  CREATE accept AS RECTANGLE
+    POSITION 300 730
+    WIDTH 250
+    HEIGHT 100
+    CORNERS 18
+    FILL #E7F4EC
+    COLOR #34734D
+    TEXT "Accept request"
+  END
+
+  CREATE clarify AS RECTANGLE
+    POSITION 780 730
+    WIDTH 270
+    HEIGHT 100
+    CORNERS 18
+    FILL #FCEDEA
+    COLOR #A54C43
+    TEXT "Ask for details"
+  END
+
+  ARROW start -> verify
+    ROUTE elbow
+    HEAD end
+  ARROW verify -> complete
+    ROUTE elbow
+    HEAD end
+  ARROW complete -> accept
+    ROUTE elbow
+    HEAD end
+    LABEL "Yes"
+  ARROW complete -> clarify
+    ROUTE elbow
+    HEAD end
+    LABEL "No"
+END SCENE

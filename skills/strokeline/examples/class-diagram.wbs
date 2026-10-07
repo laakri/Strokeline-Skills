@@ -1,0 +1,35 @@
+VERSION 1.0
+CANVAS 1080 720
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "Account model"
+  TABLE account
+    POSITION 330 330
+    SIZE 460 230
+    COLUMNS "Account"
+    ROW "id: UUID"
+    ROW "email: String"
+    DIVIDER 2
+    ROW "+ signIn(): Account"
+    HEADERCOLOR #315A72
+    DRAW 0.5s
+  END
+
+  TABLE profile
+    POSITION 790 330
+    SIZE 420 180
+    COLUMNS "Profile"
+    ROW "accountId: UUID"
+    ROW "displayName: String"
+    HEADERCOLOR #477B67
+    DRAW 0.5s
+  END
+
+  ARROW account -> profile
+    ROUTE straight
+    HEAD end
+    SOURCELABEL "1"
+    TARGETLABEL "0..1"
+  END SCENE

@@ -42,9 +42,13 @@ is required, choose a neutral layout without asserting unsupported facts.
 3. List relationships separately, including direction and meaning.
 4. Choose a diagram convention and a reading direction.
 5. Decide whether one scene is sufficient; assign one purpose to each scene.
-6. Reserve whitespace for routes, labels, margins, captions, and platform UI.
-7. Select only supported shapes/properties from the syntax matrix.
-8. Add color and animation only after the unstyled structure is legible.
+6. Set numeric canvas width and height in the correct order; sketch horizontal
+   and vertical bands and calculate shape bounds from center positions and
+   half-sizes before writing coordinates.
+7. Reserve whitespace for routes, labels, margins, captions, and platform UI.
+   For vertical scripts with subtitles, leave the lower-middle caption band clear.
+8. Select only supported shapes/properties from the syntax matrix.
+9. Add color and animation only after the unstyled structure is legible.
 
 ## Artifact-specific guidance
 

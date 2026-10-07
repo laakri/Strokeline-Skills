@@ -50,12 +50,26 @@ Exact property forms are in [syntax.md](syntax.md).
 
 ## Canvas and vertical-video margins
 
+- Read dimensions as **width, then height**: use `CANVAS 1080 1920` for 9:16
+  and `CANVAS 1920 1080` for 16:9. The origin is top-left; x grows right and y
+  grows down. `POSITION x y` is an object's center, so calculate its edges as
+  `x ± WIDTH/2` and `y ± HEIGHT/2` before placing it. Text positions are their
+  layout anchor; for centered text, keep the measured text bounds inside the
+  safe area too.
 - Reserve outer breathing room; the validator's general text-safe bounds are
   `width/16` horizontally and `height×100/1080` vertically. For 1920×1080,
   this is approximately x=120..1800 and y=100..980.
 - On vertical canvases, additionally keep important text/table cells below
   y=125, above `height-200`, and left of `width-60`, matching the app's current
   Reels/TikTok/Shorts UI overlap check.
+- Build vertical scenes in explicit horizontal bands (title, main visual,
+  supporting visual, takeaway) with x centered near `width/2`; derive each y
+  from the actual canvas height, not from a landscape template. Check node
+  edges, not just centers, against the safe margins.
+- When `SUBTITLES on` is set, keep essential diagram content clear of the
+  subtitle area centered near `0.75 × canvas height`; on 1080x1920, reserve
+  roughly y=1300..1580 before positioning the final content row. A takeaway
+  above that band (around y=1120..1250) is usually safer; inspect actual bounds.
 - The platform overlay and its zones can change. Preview in the target app and
   do not treat the safe region as a substitute for checking the exported
   composition.

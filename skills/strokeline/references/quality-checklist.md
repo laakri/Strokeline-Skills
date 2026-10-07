@@ -8,6 +8,8 @@ review.
 ## Source and semantics
 
 - [ ] Starts with `VERSION 1.0` and explicit `CANVAS width height`.
+- [ ] Canvas values are width then height (`1080 1920` for 9:16, `1920 1080`
+      for 16:9); x grows right, y grows down, and positions use canvas pixels.
 - [ ] Has at least one scene; all blocks and scenes close correctly.
 - [ ] Every statement/property is documented for that construct in
       [syntax.md](syntax.md); when uncertain, check the matrix or omit it.
@@ -22,9 +24,14 @@ review.
 
 - [ ] Nodes follow a clear grid/reading order; whitespace is reserved for
       labels and connector routes.
+- [ ] `POSITION` centers and each object's half-width/half-height bounds fit
+      inside the canvas and safe margins; no landscape coordinates were reused
+      blindly on a vertical canvas.
 - [ ] Text fits without collisions, borders, arrowheads, or unsafe margins.
 - [ ] Critical text is preferably 28px or larger; contrast is at least 4.5:1.
 - [ ] Vertical composition leaves platform-control and caption space.
+- [ ] With `SUBTITLES on`, the lower-middle caption region around
+      `0.75 × canvas height` is kept clear of essential content.
 - [ ] Palette and pen style remain coherent; color is not the only indicator.
 
 ## Timing and motion

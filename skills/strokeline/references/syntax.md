@@ -32,6 +32,33 @@ and `SUBTITLES on|off`. The compiler defaults to a `1920 1080` canvas,
 `#FAFAFA` background, stroke width `4`, and handwritten font, but missing
 required headers still produce diagnostics.
 
+### Coordinate and size conventions
+
+- `CANVAS width height` is **width first, height second**, in pixels.
+  Landscape 16:9 is `CANVAS 1920 1080`; vertical 9:16 is
+  `CANVAS 1080 1920`. Never reverse these values to express orientation.
+- The origin `(0, 0)` is the upper-left. `x` increases to the right and `y`
+  increases downward. `POSITION x y` uses these canvas-pixel coordinates.
+- For shapes and text, `POSITION` is the **center**, not the upper-left.
+  `WIDTH` and `HEIGHT` extend half their value on each side of that center.
+  For example, a `WIDTH 800`, `HEIGHT 220` rectangle at `POSITION 540 900`
+  occupies x=140..940 and y=790..1010 on a 1080x1920 canvas.
+- A text object's `POSITION` is the center of its laid-out text block.
+  `MAXWIDTH` constrains wrapping; it does not move the text or change the
+  canvas. Check the rendered block bounds, not only the anchor coordinate.
+- Before writing positions, choose the canvas, then keep every visible object's
+  full bounds (`center ± half-size`) inside it and inside the safe margins.
+  Use a layout grid; do not copy landscape y-coordinates into a vertical
+  composition or infer that a bigger canvas automatically fixes clipping.
+- With `SUBTITLES on`, reserve the lower-middle subtitle band: the renderer
+  centers captions around `y = 0.75 × canvas height`. Do not put essential
+  text or diagram nodes behind that band.
+
+For a 1080x1920 vertical video, a conservative starting grid is title centers
+around y=250–450, main visuals around y=650–1050, and a takeaway around
+y=1120–1250. Leave approximately y=1300–1580 clear when subtitles are on;
+then check the actual text/shape bounds and platform UI margins.
+
 Each script needs at least one `SCENE number ["title"]` closed by `END SCENE`.
 An optional `TRANSITION fade|wipe|slide|erase|none DURATION time` and
 `GAP DURATION time` go after the scene's statements and before `END SCENE`.

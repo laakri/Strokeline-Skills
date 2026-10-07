@@ -48,7 +48,7 @@ SCENE 3 "Payoff"
     DURATION 4s
     TONE recap
   CREATE payoff AS TEXT
-    POSITION 540 1360
+    POSITION 540 1180
     SIZE 48
     MAXWIDTH 800
     ALIGN center

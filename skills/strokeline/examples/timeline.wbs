@@ -1,0 +1,52 @@
+// Purpose: Show a three-step project timeline with dates and dependencies.
+// Features used: aligned milestones, labels, connectors, consistent spacing.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1400 800
+STYLE clean
+FONT neat
+BACKGROUND #F7F9FC
+
+SCENE 1 "Launch timeline"
+  CREATE plan AS CIRCLE
+    POSITION 260 390
+    RADIUS 70
+    FILL #DDE9E7
+    TEXT "Plan"
+    SIZE 32
+  END
+  CREATE build AS CIRCLE
+    POSITION 700 390
+    RADIUS 70
+    FILL #E8F1FA
+    TEXT "Build"
+    SIZE 32
+  END
+  CREATE launch AS CIRCLE
+    POSITION 1140 390
+    RADIUS 70
+    FILL #FFF3D9
+    TEXT "Launch"
+    SIZE 32
+  END
+  CREATE d1 AS TEXT
+    POSITION 260 520
+    SIZE 28
+    TEXT "Week 1"
+  END
+  CREATE d2 AS TEXT
+    POSITION 700 520
+    SIZE 28
+    TEXT "Weeks 2–4"
+  END
+  CREATE d3 AS TEXT
+    POSITION 1140 520
+    SIZE 28
+    TEXT "Week 5"
+  END
+  ARROW plan -> build
+    ROUTE straight
+  ARROW build -> launch
+    ROUTE straight
+END SCENE

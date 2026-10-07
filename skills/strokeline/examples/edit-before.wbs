@@ -1,0 +1,21 @@
+// Purpose: Valid baseline script before a requested visual edit.
+// Features used: labeled rectangle, explicit geometry, single scene.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1080 720
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "Before edit"
+  CREATE status AS RECTANGLE
+    POSITION 540 360
+    WIDTH 420
+    HEIGHT 160
+    TEXT "Service ready"
+    SIZE 34
+    COLOR #243C46
+    FILL #E8F1FA
+  END
+END SCENE

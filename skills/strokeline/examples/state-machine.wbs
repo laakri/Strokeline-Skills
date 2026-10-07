@@ -1,0 +1,53 @@
+// Purpose: Model a simple order lifecycle with guarded transitions.
+// Features used: labeled states, decision node, directed transitions, branch labels.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1200 850
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "Order lifecycle"
+  CREATE draft AS ELLIPSE
+    POSITION 220 300
+    WIDTH 180
+    HEIGHT 100
+    TEXT "Draft"
+    SIZE 30
+    FILL #E8F1FA
+  END
+  CREATE review AS DIAMOND
+    POSITION 520 300
+    WIDTH 230
+    HEIGHT 160
+    TEXT "Approved?"
+    SIZE 30
+    FILL #FFF3D9
+  END
+  CREATE paid AS ELLIPSE
+    POSITION 850 220
+    WIDTH 190
+    HEIGHT 100
+    TEXT "Paid"
+    SIZE 30
+    FILL #DDF3EF
+  END
+  CREATE cancelled AS ELLIPSE
+    POSITION 850 430
+    WIDTH 220
+    HEIGHT 100
+    TEXT "Cancelled"
+    SIZE 30
+    FILL #FCEDEA
+  END
+  ARROW draft -> review
+    ROUTE straight
+  ARROW review -> paid
+    ROUTE straight
+    LABEL "yes"
+  ARROW review -> cancelled
+    ROUTE elbow
+    VIA 700 430
+    LABEL "no"
+END SCENE

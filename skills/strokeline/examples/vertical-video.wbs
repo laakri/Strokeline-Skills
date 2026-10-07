@@ -1,0 +1,59 @@
+// Purpose: Create a phone-readable vertical explainer about caching.
+// Features used: 9:16 canvas, three beats, narration, safe margins, transitions.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1080 1920
+THEME atlas
+STYLE clean
+FONT neat
+SUBTITLES on
+
+SCENE 1 "Hook"
+  SAY "Why does the same page feel faster the second time?"
+    DURATION 4s
+    TONE hook
+  CREATE hook AS TEXT
+    POSITION 540 520
+    SIZE 58
+    MAXWIDTH 820
+    ALIGN center
+    TEXT "The second visit can be faster"
+    COLOR #243C46
+    DRAW 0.7s
+  END
+  TRANSITION fade DURATION 0.4s
+END SCENE
+
+SCENE 2 "Cache"
+  SAY "A cache keeps a recent result close instead of fetching it again."
+    DURATION 4s
+    TONE explain
+  CREATE cache AS RECTANGLE
+    POSITION 540 930
+    WIDTH 760
+    HEIGHT 260
+    CORNERS 32
+    FILL #DDE9E7
+    TEXT "Keep a reusable result nearby"
+    SIZE 40
+    COLOR #243C46
+    DRAW 0.7s
+  END
+  TRANSITION slide DURATION 0.4s
+END SCENE
+
+SCENE 3 "Payoff"
+  SAY "Fresh data still needs a refresh rule, so speed does not mean stale."
+    DURATION 4s
+    TONE recap
+  CREATE payoff AS TEXT
+    POSITION 540 1360
+    SIZE 48
+    MAXWIDTH 800
+    ALIGN center
+    TEXT "Fast reuse. Clear refresh rules."
+    COLOR #243C46
+    DRAW 0.7s
+  END
+END SCENE

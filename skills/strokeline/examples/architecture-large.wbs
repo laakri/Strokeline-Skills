@@ -1,0 +1,229 @@
+// Purpose: Show a 30-node reference platform architecture.
+// Features used: icon nodes, aligned layers, directed connectors, clean styling.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1920 1080
+STYLE clean
+FONT neat
+BACKGROUND #F7F9FC
+STROKE 3
+
+SCENE 1 "Reference platform architecture"
+  PARALLEL
+  CREATE h1 AS TEXT
+    POSITION 280 125
+    SIZE 30
+    TEXT "Clients"
+  END
+  CREATE h2 AS TEXT
+    POSITION 550 125
+    SIZE 30
+    TEXT "Edge"
+  END
+  CREATE h3 AS TEXT
+    POSITION 820 125
+    SIZE 30
+    TEXT "API"
+  END
+  CREATE h4 AS TEXT
+    POSITION 1090 125
+    SIZE 30
+    TEXT "Services"
+  END
+  CREATE h5 AS TEXT
+    POSITION 1360 125
+    SIZE 30
+    TEXT "Data"
+  END
+  CREATE h6 AS TEXT
+    POSITION 1630 125
+    SIZE 30
+    TEXT "Operations"
+  END
+
+  CREATE web AS ICON
+    POSITION 280 300
+    SIZE 48
+    NAME monitor
+  END
+  CREATE mobile AS ICON
+    POSITION 280 450
+    SIZE 48
+    NAME smartphone
+  END
+  CREATE tablet AS ICON
+    POSITION 280 600
+    SIZE 48
+    NAME tablet
+  END
+  CREATE partner AS ICON
+    POSITION 280 750
+    SIZE 48
+    NAME users
+  END
+  CREATE public AS ICON
+    POSITION 280 900
+    SIZE 48
+    NAME globe
+  END
+
+  CREATE cdn AS ICON
+    POSITION 550 300
+    SIZE 48
+    NAME cloud
+  END
+  CREATE waf AS ICON
+    POSITION 550 450
+    SIZE 48
+    NAME shield-check
+  END
+  CREATE gateway AS ICON
+    POSITION 550 600
+    SIZE 48
+    NAME server
+  END
+  CREATE cache AS ICON
+    POSITION 550 750
+    SIZE 48
+    NAME layers
+  END
+  CREATE edgeDns AS ICON
+    POSITION 550 900
+    SIZE 48
+    NAME globe
+  END
+
+  CREATE router AS ICON
+    POSITION 820 300
+    SIZE 48
+    NAME workflow
+  END
+  CREATE auth AS ICON
+    POSITION 820 450
+    SIZE 48
+    NAME lock
+  END
+  CREATE api AS ICON
+    POSITION 820 600
+    SIZE 48
+    NAME server
+  END
+  CREATE limits AS ICON
+    POSITION 820 750
+    SIZE 48
+    NAME activity
+  END
+  CREATE keys AS ICON
+    POSITION 820 900
+    SIZE 48
+    NAME key-round
+  END
+
+  CREATE accounts AS ICON
+    POSITION 1090 300
+    SIZE 48
+    NAME users
+  END
+  CREATE billing AS ICON
+    POSITION 1090 450
+    SIZE 48
+    NAME credit-card
+  END
+  CREATE search AS ICON
+    POSITION 1090 600
+    SIZE 48
+    NAME search
+  END
+  CREATE notifications AS ICON
+    POSITION 1090 750
+    SIZE 48
+    NAME bell
+  END
+  CREATE media AS ICON
+    POSITION 1090 900
+    SIZE 48
+    NAME package
+  END
+
+  CREATE accountDb AS ICON
+    POSITION 1360 300
+    SIZE 48
+    NAME database
+  END
+  CREATE eventDb AS ICON
+    POSITION 1360 450
+    SIZE 48
+    NAME archive
+  END
+  CREATE searchIndex AS ICON
+    POSITION 1360 600
+    SIZE 48
+    NAME database-zap
+  END
+  CREATE queue AS ICON
+    POSITION 1360 750
+    SIZE 48
+    NAME git-branch
+  END
+  CREATE objectStore AS ICON
+    POSITION 1360 900
+    SIZE 48
+    NAME box
+  END
+
+  CREATE logs AS ICON
+    POSITION 1630 300
+    SIZE 48
+    NAME file-text
+  END
+  CREATE metrics AS ICON
+    POSITION 1630 450
+    SIZE 48
+    NAME bar-chart
+  END
+  CREATE traces AS ICON
+    POSITION 1630 600
+    SIZE 48
+    NAME activity-square
+  END
+  CREATE alerts AS ICON
+    POSITION 1630 750
+    SIZE 48
+    NAME triangle-alert
+  END
+  CREATE deploy AS ICON
+    POSITION 1630 900
+    SIZE 48
+    NAME git-merge
+  END
+  END
+
+  PARALLEL
+  ARROW web -> cdn
+  ARROW mobile -> waf
+  ARROW tablet -> gateway
+  ARROW partner -> cache
+  ARROW public -> edgeDns
+  ARROW cdn -> router
+  ARROW waf -> auth
+  ARROW gateway -> api
+  ARROW cache -> limits
+  ARROW edgeDns -> keys
+  ARROW router -> accounts
+  ARROW auth -> billing
+  ARROW api -> search
+  ARROW limits -> notifications
+  ARROW keys -> media
+  ARROW accounts -> accountDb
+  ARROW billing -> eventDb
+  ARROW search -> searchIndex
+  ARROW notifications -> queue
+  ARROW media -> objectStore
+  ARROW accountDb -> logs
+  ARROW eventDb -> metrics
+  ARROW searchIndex -> traces
+  ARROW queue -> alerts
+  ARROW objectStore -> deploy
+  END
+END SCENE

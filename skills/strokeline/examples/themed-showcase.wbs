@@ -1,0 +1,50 @@
+// Purpose: Demonstrate a coordinated light editorial theme and visual hierarchy.
+// Features used: THEME, clean style, contrast, fills, rounded cards, reveal.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1920 1080
+THEME atlas
+STYLE clean
+FONT neat
+STROKE 3
+
+SCENE 1 "Editorial theme"
+  CREATE title AS TEXT
+    POSITION 960 180
+    SIZE 58
+    TEXT "A calm, readable system"
+    COLOR #243C46
+    DRAW 0.6s
+  END
+  CREATE primary AS RECTANGLE
+    POSITION 570 510
+    WIDTH 460
+    HEIGHT 220
+    CORNERS 28
+    FILL #DDE9E7
+    TEXT "Primary idea"
+    SIZE 38
+    COLOR #243C46
+    DRAW 0.6s
+  END
+  CREATE detail AS RECTANGLE
+    POSITION 1350 510
+    WIDTH 460
+    HEIGHT 220
+    CORNERS 28
+    FILL #F3EFE4
+    TEXT "Supporting detail"
+    SIZE 38
+    COLOR #243C46
+    DRAW 0.6s
+  END
+  ARROW primary -> detail
+    ROUTE straight
+    HEAD end
+    COLOR #365B63
+    STROKE 4
+  ANIMATE detail SCALE TO 1.04
+    DURATION 0.5s
+    EASE easeOut
+END SCENE

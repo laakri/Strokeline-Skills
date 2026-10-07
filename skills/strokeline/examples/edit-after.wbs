@@ -1,0 +1,31 @@
+// Purpose: Complete edited result adding emphasis without changing the existing ID.
+// Features used: preserved ID and theme, added subtitle and scale animation.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1080 720
+STYLE clean
+FONT neat
+BACKGROUND #FAFAFA
+
+SCENE 1 "After edit"
+  CREATE status AS RECTANGLE
+    POSITION 540 330
+    WIDTH 460
+    HEIGHT 170
+    CORNERS 26
+    TEXT "Service ready"
+    SIZE 36
+    COLOR #243C46
+    FILL #DDF3EF
+  END
+  CREATE detail AS TEXT
+    POSITION 540 500
+    SIZE 28
+    TEXT "Checks passed; traffic can proceed."
+    COLOR #365B63
+  END
+  ANIMATE status SCALE TO 1.04
+    DURATION 0.5s
+    EASE easeOut
+END SCENE

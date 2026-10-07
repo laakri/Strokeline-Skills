@@ -1,0 +1,87 @@
+// Purpose: Show a compact request/response sequence with a self-message.
+// Features used: lifelines, dashed lines, self-arrow, message labels, participants.
+// Validator status: checked.
+// Remaining warnings: none.
+VERSION 1.0
+CANVAS 1200 900
+STYLE clean
+FONT neat
+BACKGROUND #F7F9FC
+
+SCENE 1 "Request sequence"
+  CREATE client AS RECTANGLE
+    POSITION 300 140
+    WIDTH 180
+    HEIGHT 70
+    TEXT "Client"
+    SIZE 28
+    FILL #E8F1FA
+  END
+  CREATE api AS RECTANGLE
+    POSITION 600 140
+    WIDTH 180
+    HEIGHT 70
+    TEXT "API"
+    SIZE 28
+    FILL #E7F4EC
+  END
+  CREATE store AS RECTANGLE
+    POSITION 900 140
+    WIDTH 180
+    HEIGHT 70
+    TEXT "Store"
+    SIZE 28
+    FILL #FFF3D9
+  END
+  CREATE clientLife AS LINE
+    FROM 300 180
+    TO 300 760
+    LINESTYLE dashed
+  END
+  CREATE apiLife AS LINE
+    FROM 600 180
+    TO 600 760
+    LINESTYLE dashed
+  END
+  CREATE storeLife AS LINE
+    FROM 900 180
+    TO 900 760
+    LINESTYLE dashed
+  END
+  CREATE msg1 AS TEXT
+    POSITION 420 290
+    SIZE 28
+    TEXT "GET /items"
+  END
+  CREATE msg2 AS TEXT
+    POSITION 600 400
+    SIZE 28
+    TEXT "check token"
+  END
+  CREATE msg3 AS TEXT
+    POSITION 750 510
+    SIZE 28
+    TEXT "read items"
+  END
+  CREATE msg4 AS TEXT
+    POSITION 750 620
+    SIZE 28
+    TEXT "items returned"
+  END
+  CREATE msg5 AS TEXT
+    POSITION 450 710
+    SIZE 28
+    TEXT "200 response"
+  END
+  ARROW client -> api
+    ROUTE straight
+  ARROW api -> api
+    ROUTE elbow
+    VIA 700 350 600 350
+  ARROW api -> store
+    ROUTE straight
+  ARROW store -> api
+    ROUTE straight
+  ARROW api -> client
+    ROUTE straight
+END SCENE

@@ -28,8 +28,12 @@ authority. This skill guides planning and quality; it does not replace the app.
    nodes, relationships, reading direction, scene count, and safe margins.
 3. **Write the script.** Follow [syntax.md](references/syntax.md). When unsure
    whether a feature works, check the statement/property matrix or omit it.
-   Set canvas width before height, and calculate placement from center
-   coordinates and object bounds; do not reuse positions across aspect ratios.
+   `CANVAS` is `width height`, never `height width`: for vertical 9:16 require
+   width < height (usually `1080 1920`); for landscape 16:9 require width >
+   height (usually `1920 1080`). Before returning, compare the actual two
+   numbers with the requested orientation and fix them if they disagree.
+   Calculate placement from center coordinates and object bounds; do not reuse
+   positions across aspect ratios.
 4. **Self-check.** Run the full source through the app pipeline when available;
    resolve every error and review every warning against
    [diagnostics.md](references/diagnostics.md) and

@@ -37,6 +37,8 @@ required headers still produce diagnostics.
 - `CANVAS width height` is **width first, height second**, in pixels.
   Landscape 16:9 is `CANVAS 1920 1080`; vertical 9:16 is
   `CANVAS 1080 1920`. Never reverse these values to express orientation.
+  Sanity-check the inequality before returning: vertical means width < height;
+  landscape means width > height. `CANVAS 1920 1080` is landscape, not vertical.
 - The origin `(0, 0)` is the upper-left. `x` increases to the right and `y`
   increases downward. `POSITION x y` uses these canvas-pixel coordinates.
 - For shapes and text, `POSITION` is the **center**, not the upper-left.

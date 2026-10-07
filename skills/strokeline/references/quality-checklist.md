@@ -10,6 +10,9 @@ review.
 - [ ] Starts with `VERSION 1.0` and explicit `CANVAS width height`.
 - [ ] Canvas values are width then height (`1080 1920` for 9:16, `1920 1080`
       for 16:9); x grows right, y grows down, and positions use canvas pixels.
+- [ ] Canvas orientation matches the requested format: vertical has width <
+      height; landscape has width > height. Re-read the literal `CANVAS`
+      numbers before delivery; syntax validation alone will not catch reversal.
 - [ ] Has at least one scene; all blocks and scenes close correctly.
 - [ ] Every statement/property is documented for that construct in
       [syntax.md](syntax.md); when uncertain, check the matrix or omit it.

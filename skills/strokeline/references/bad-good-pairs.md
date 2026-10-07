@@ -131,3 +131,23 @@ SCENE 1 "Opening"
   END
 END SCENE
 ```
+
+## Reversed canvas dimensions
+
+**Bad — this is landscape, despite the vertical-video intent:**
+
+```text
+VERSION 1.0
+CANVAS 1920 1080
+SCENE 1 "Vertical short"
+END SCENE
+```
+
+**Good — width first, height second; 9:16 is taller than it is wide:**
+
+```text
+VERSION 1.0
+CANVAS 1080 1920
+SCENE 1 "Vertical short"
+END SCENE
+```

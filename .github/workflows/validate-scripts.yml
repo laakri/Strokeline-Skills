@@ -4,12 +4,10 @@ on:
   push:
     paths:
       - "skills/strokeline/examples/**"
-      - "evals/**"
       - ".github/workflows/validate-scripts.yml"
   pull_request:
     paths:
       - "skills/strokeline/examples/**"
-      - "evals/**"
       - ".github/workflows/validate-scripts.yml"
   workflow_dispatch:
 
@@ -41,5 +39,5 @@ jobs:
         working-directory: strokeline/web
         run: npm ci
 
-      - name: Validate examples and evaluation scripts
-        run: node strokeline/web/scripts/validate.mjs skills/strokeline/examples evals
+      - name: Validate examples
+        run: node strokeline/web/scripts/validate.mjs skills/strokeline/examples

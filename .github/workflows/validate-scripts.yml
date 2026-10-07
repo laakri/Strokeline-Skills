@@ -1,0 +1,45 @@
+name: Validate Strokeline scripts
+
+on:
+  push:
+    paths:
+      - "skills/strokeline/examples/**"
+      - "evals/**"
+      - ".github/workflows/validate-scripts.yml"
+  pull_request:
+    paths:
+      - "skills/strokeline/examples/**"
+      - "evals/**"
+      - ".github/workflows/validate-scripts.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out skill repository
+        uses: actions/checkout@v4
+
+      - name: Check out Strokeline app
+        uses: actions/checkout@v4
+        with:
+          repository: laakri/strokeline
+          ref: codex/diagram-authoring
+          path: strokeline
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: strokeline/web/package-lock.json
+
+      - name: Install app dependencies
+        working-directory: strokeline/web
+        run: npm ci
+
+      - name: Validate examples and evaluation scripts
+        run: node strokeline/web/scripts/validate.mjs skills/strokeline/examples evals

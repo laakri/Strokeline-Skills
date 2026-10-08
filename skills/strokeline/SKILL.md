@@ -28,6 +28,10 @@ authority. This skill guides planning and quality; it does not replace the app.
    nodes, relationships, reading direction, scene count, and safe margins.
 3. **Write the script.** Follow [syntax.md](references/syntax.md). When unsure
    whether a feature works, check the statement/property matrix or omit it.
+   For optional renderer polish, use `ROUGH on` for deterministic sketch
+   outlines, `PENFOLLOW on` for a pen that follows a reveal, and `FREEHAND on`
+   on `INK` for variable-width strokes. These are opt-in; omit them when
+   compatibility with the legacy renderer is more important.
    `CANVAS` is `width height`, never `height width`: for vertical 9:16 require
    width < height (usually `1080 1920`); for landscape 16:9 require width >
    height (usually `1920 1080`). Before returning, compare the actual two

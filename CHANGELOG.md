@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Documented ordered Rough edge reveals, synchronized overdraw, patterned
+  fills, and smooth rounded arrow routes; added a parser-validated example.
 - Added an app-backed validator CLI and a GitHub Actions workflow for `.wbs`
   examples and evaluation fixtures.
 - Reworked the core Agent Skill into a concise workflow/router and added

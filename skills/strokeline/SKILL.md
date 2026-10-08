@@ -31,7 +31,11 @@ authority. This skill guides planning and quality; it does not replace the app.
    For optional renderer polish, use `ROUGH on` for deterministic sketch
    outlines, `PENFOLLOW on` for a pen that follows a reveal, and `FREEHAND on`
    on `INK` for variable-width strokes. These are opt-in; omit them when
-   compatibility with the legacy renderer is more important.
+   compatibility with the legacy renderer is more important. Rough geometry
+   supports `ROUGHNESS`, `ROUGHSEED`, `BOWING`, and patterned `ROUGHFILL`
+   styles when paired with `FILL #hex`. Pattern fills appear after the outline.
+   Arrow `elbow` routes have rounded corners and `curve` routes are smoothly
+   sampled; draw-on reveal and pen-follow use the same route.
    `CANVAS` is `width height`, never `height width`: for vertical 9:16 require
    width < height (usually `1080 1920`); for landscape 16:9 require width >
    height (usually `1920 1080`). Before returning, compare the actual two

@@ -1,0 +1,16 @@
+// Purpose: Variable-width perfect-freehand ink reveal.
+// Features used: FREEHAND on.
+VERSION 1.0
+CANVAS 1000 600
+STYLE clean
+STROKE 4
+
+SCENE 1 "Freehand ink"
+  INK wave
+    POINTS 100 340, 220 260, 340 360, 460 250, 580 350, 700 270, 860 340
+    COLOR #7C3AED
+    WIDTH 14
+    FREEHAND on
+    DRAW 1.5s
+  END
+END SCENE

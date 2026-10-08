@@ -1,0 +1,34 @@
+// Purpose: A pen follows the deterministic reveal tip.
+// Features used: ROUGH on, PENFOLLOW on.
+VERSION 1.0
+CANVAS 1000 600
+STYLE clean
+STROKE 4
+
+SCENE 1 "Pen follow"
+  CREATE first AS RECTANGLE
+    POSITION 300 300
+    WIDTH 260
+    HEIGHT 140
+    CORNERS 22
+    COLOR #2563EB
+    FILL #E8F0FF
+    TEXT "First stroke"
+    SIZE 30
+    ROUGH on
+    PENFOLLOW on
+    DRAW 1s
+  END
+  CREATE second AS DIAMOND
+    POSITION 700 300
+    WIDTH 220
+    HEIGHT 160
+    COLOR #166534
+    FILL #DCFCE7
+    TEXT "Next stroke"
+    SIZE 28
+    ROUGH on
+    PENFOLLOW on
+    DRAW 1s
+  END
+END SCENE

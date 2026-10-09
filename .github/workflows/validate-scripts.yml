@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "skills/strokeline/examples/**"
+      - "evals/**"
       - ".github/workflows/validate-scripts.yml"
   pull_request:
     paths:
       - "skills/strokeline/examples/**"
+      - "evals/**"
       - ".github/workflows/validate-scripts.yml"
   workflow_dispatch:
 
@@ -25,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: laakri/strokeline
-          ref: codex/diagram-authoring
+          ref: main
           path: strokeline
 
       - name: Set up Node.js
@@ -40,4 +42,4 @@ jobs:
         run: npm ci
 
       - name: Validate examples
-        run: node strokeline/web/scripts/validate.mjs skills/strokeline/examples
+        run: node strokeline/web/scripts/validate.mjs skills/strokeline/examples evals

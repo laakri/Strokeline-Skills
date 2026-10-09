@@ -51,11 +51,11 @@ From this repository root, after checking out the app into a sibling
 node strokeline/web/scripts/validate.mjs skills/strokeline/examples evals
 ```
 
-The GitHub Actions workflow checks out the app's `codex/diagram-authoring`
-branch, installs its `web` dependencies, and validates every `.wbs` file under
-`skills/strokeline/examples/` and `evals/`. The `evals/` directory currently
-contains Markdown prompts rather than `.wbs` files. Warnings are reported for
-review; any non-`W_` diagnostic fails validation.
+The GitHub Actions workflow checks out the app's `main` branch, installs its
+`web` dependencies, and validates `.wbs` files in `skills/strokeline/examples/`
+and `evals/`. The current eval set is Markdown prompts, so those prompts are
+not parsed by the script validator. Warnings are reported for review; any
+non-`W_` diagnostic fails validation.
 
 See [the maintenance checklist](skills/strokeline/references/maintenance.md)
 before publishing skill updates.

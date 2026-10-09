@@ -35,13 +35,24 @@ For a factual diagram, never invent APIs, dependencies, values, or causal
 relationships. If prose is allowed, state an assumption; if source-only output
 is required, choose a neutral layout without asserting unsupported facts.
 
+## Creative direction
+
+For creative scenes, start with a visual concept tied to the subject, not a
+stock storyboard or a familiar motif chosen by habit. Give each scene a distinct
+job and vary scale, composition, or visual action when the idea changes. Keep a
+coherent visual throughline, but do not repeat the same layout scene after
+scene. Use metaphor to clarify the content, never to add unsupported facts;
+decoration should earn its place.
+
 ## Planning sequence
 
 1. Rewrite the request as one sentence describing the takeaway.
 2. List candidate nodes; remove content that does not support the takeaway.
 3. List relationships separately, including direction and meaning.
-4. Choose a diagram convention and a reading direction.
-5. Decide whether one scene is sufficient; assign one purpose to each scene.
+4. Choose a diagram convention and reading direction; for creative work, use
+   patterns only as structural scaffolding, then choose original imagery.
+5. Decide whether one scene is sufficient; give each scene one purpose and a
+   distinct composition when the story calls for a change of focus.
 6. Set numeric canvas width and height in the correct order; sketch horizontal
    and vertical bands and calculate shape bounds from center positions and
    half-sizes before writing coordinates.

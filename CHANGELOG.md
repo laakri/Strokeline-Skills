@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Strengthened creative scene planning to favor subject-specific visual concepts
+  and purposeful scene variety over default storyboard patterns.
 - Documented ordered Rough edge reveals, synchronized overdraw, patterned
   fills, and smooth rounded arrow routes; added a parser-validated example.
 - Added an app-backed validator CLI and a GitHub Actions workflow for `.wbs`

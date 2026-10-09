@@ -22,11 +22,15 @@ authority. This skill guides planning and quality; it does not replace the app.
 
 1. **Clarify and plan.** Identify purpose, audience, factual scope, desired
    output, style, duration, and aspect ratio. Ask only when an unknown changes
-   correctness or materially affects the result; otherwise make conservative
+   correctness or materially affects the result; otherwise make purposeful
    visual choices.
-2. **Choose a pattern.** Select a suitable diagram/storyboard recipe and decide
+2. **Develop the concept.** For creative work, choose a specific visual idea
+   grounded in the subject and let each scene advance it. Use patterns as
+   structural references, not as plot or imagery to copy; avoid defaulting to
+   familiar motifs or repeating one composition without a reason.
+3. **Choose a pattern.** Select a suitable diagram/storyboard recipe and decide
    nodes, relationships, reading direction, scene count, and safe margins.
-3. **Write the script.** Follow [syntax.md](references/syntax.md). When unsure
+4. **Write the script.** Follow [syntax.md](references/syntax.md). When unsure
    whether a feature works, check the statement/property matrix or omit it.
    For optional renderer polish, use `ROUGH on` for deterministic sketch
    outlines, `PENFOLLOW on` for a pen that follows a reveal, and `FREEHAND on`
@@ -42,12 +46,12 @@ authority. This skill guides planning and quality; it does not replace the app.
    numbers with the requested orientation and fix them if they disagree.
    Calculate placement from center coordinates and object bounds; do not reuse
    positions across aspect ratios.
-4. **Self-check.** Run the full source through the app pipeline when available;
+5. **Self-check.** Run the full source through the app pipeline when available;
    resolve every error and review every warning against
    [diagnostics.md](references/diagnostics.md) and
    [quality-checklist.md](references/quality-checklist.md). Never claim a check
    that was not run.
-5. **Return the result.** Provide the complete source in one code block, then a
+6. **Return the result.** Provide the complete source in one code block, then a
    2–3 line summary. Honor an explicit raw-source-only or other requested
    output format.
 

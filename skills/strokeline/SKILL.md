@@ -39,6 +39,9 @@ authority. This skill guides planning and quality; it does not replace the app.
    familiar motifs or repeating one composition without a reason.
 3. **Choose a pattern.** Select a suitable diagram/storyboard recipe and decide
    nodes, relationships, reading direction, scene count, and safe margins.
+   For diagrams, plan the connector paths alongside node placement: establish a
+   main flow lane, reserve separate branch/feedback corridors, and leave room
+   for arrow labels.
 4. **Write the script.** Follow [syntax.md](references/syntax.md). When unsure
    whether a feature works, check the statement/property matrix or omit it.
    For coordinate-based strokes, use `INK <id>` with at least two `POINTS`
@@ -52,7 +55,11 @@ authority. This skill guides planning and quality; it does not replace the app.
    supports `ROUGHNESS`, `ROUGHSEED`, `BOWING`, and patterned `ROUGHFILL`
    styles when paired with `FILL #hex`. Pattern fills appear after the outline.
    Arrow `elbow` routes have rounded corners and `curve` routes are smoothly
-   sampled; draw-on reveal and pen-follow use the same route.
+   sampled; draw-on reveal and pen-follow use the same route. Do not assume
+   automatic routing avoids obstacles: use `ROUTE elbow` with intentional
+   `VIA` corridors for branches, parallel connectors, and feedback loops. Give
+   each route a clear approach side, keep paths and labels out of nodes and
+   text, and inspect the rendered diagram to adjust crossings manually.
    `CANVAS` is `width height`, never `height width`: for vertical 9:16 require
    width < height (usually `1080 1920`); for landscape 16:9 require width >
    height (usually `1920 1080`). Before returning, compare the actual two

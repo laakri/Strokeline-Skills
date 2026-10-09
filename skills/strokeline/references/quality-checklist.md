@@ -29,6 +29,9 @@ review.
 
 - [ ] Nodes follow a clear grid/reading order; whitespace is reserved for
       labels and connector routes.
+- [ ] Main flow, branches, and feedback loops use deliberate, distinct routing
+      lanes; inspect `VIA` bends and connector-to-shape crossings in the
+      rendered diagram because `ROUTE elbow` is not obstacle-avoiding.
 - [ ] `POSITION` centers and each object's half-width/half-height bounds fit
       inside the canvas and safe margins; no landscape coordinates were reused
       blindly on a vertical canvas.

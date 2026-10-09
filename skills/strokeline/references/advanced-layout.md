@@ -26,8 +26,24 @@ Exact property forms are in [syntax.md](syntax.md).
 - Establish minimum node-to-node gaps based on label width and route needs,
   not just shape dimensions. Keep arrowheads and multiplicity labels outside
   node text.
+- Plan connectors at the same time as node positions. Mark the main flow lane,
+  separate branch lanes, and an outer feedback corridor before drawing any
+  edges. Leave enough gutter for arrow paths and labels.
 - Create all endpoints before arrows. Route structured edges with
-  `ROUTE elbow`; use `VIA x y ...` for an intentional corridor.
+  `ROUTE elbow`; use `VIA x y ...` to place bends in an intentional corridor.
+  The default elbow chooses a midpoint bend; it does not automatically avoid
+  nodes, other connectors, or text. For each edge, choose the source and target
+  approach sides deliberately, then route around—not through—intervening
+  shapes.
+- Draw the primary flow first. Route each branch in a distinct lane and put
+  short decision labels beside the relevant branch, not on top of a node or
+  another connector. Keep return/feedback paths around the outside of the
+  diagram and use a dashed style to distinguish them when appropriate.
+- For multiple connections to one node, fan them through separate waypoints
+  and ports instead of stacking arrowheads at one point. Avoid crossings; if
+  two paths must cross, make the crossing unambiguous and keep it away from
+  labels and nodes. Run the validator, then inspect the rendered result:
+  `W_ARROW_CROSSES_TEXT` does not detect every connector-to-shape collision.
 - For tables, budget padding inside cells and widen columns for text instead of
   shrinking type. Keep rows concise and ensure every `ROW` matches `COLUMNS`.
 - For 30+ node architectures, divide the page into labeled layers; use

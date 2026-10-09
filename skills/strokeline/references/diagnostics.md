@@ -68,7 +68,7 @@ construct named by the live message, then rerun the full script.
 | `E_EXPECTED_STRING` | `SAY` text is not quoted; use `SAY "spoken text"`. |
 | `E_EXPECTED_TOKEN` | A required structural token such as `AS`, `AT`, `FROM`, or `TO` is missing; match the documented statement form. |
 | `E_EXPECTED_TYPE` | `CREATE id AS` has no type; add a supported shape type. |
-| `E_INVALID_POINTS` | INK has fewer than two complete points or an arrow whose endpoints are identical; provide at least two distinct `x y` pairs. |
+| `E_INVALID_POINTS` | INK has fewer than two complete points or an arrow whose endpoints are identical. `INK RAW` is not a mode and has no implicit points. Provide at least two distinct `x y` pairs under `INK <id>`. |
 | `E_MISSING_HEADER` | `VERSION 1.0` or `CANVAS width height` is missing or out of order; put both first. |
 | `E_MISSING_REQUIRED_PROP` | A table/layout/shape lacks a required property; supply the property named in the message. |
 | `E_MISSING_SCENE` | No scene was parsed; add at least one complete scene. |
@@ -98,7 +98,7 @@ does not block solely on a `W_` code.
 | `W_LONG_TEXT` | Give standalone text longer than 60 characters a suitable `MAXWIDTH`, then check its wrapped height and placement. |
 | `W_LOW_CONTRAST` | Choose foreground and background colors with at least 4.5:1 contrast; verify text against both the canvas and filled shape/text plate. |
 | `W_REELS_UI_OVERLAP` | On vertical canvases, keep text/table-cell bounds below the top 125px, above the bottom 200px, and left of the rightmost 60px; preview against the target platform overlay. |
-| `W_SAY_ECHO` | Make narration add a reason, analogy, consequence, or transition instead of repeating visible text. |
+| `W_SAY_ECHO` | The validator found substantial wording shared by a `SAY` and visible text during overlapping time. Rephrase the narration to add a reason, analogy, consequence, or transition, or change the on-screen copy. |
 | `W_SAY_FAST` | Keep narration at or below four words per second by shortening the cue or increasing `DURATION`. |
 | `W_SAY_OVERLAP` | Avoid cues scheduled over the same interval; sequence them deliberately. Playback may auto-schedule overlapping cues, but that is not a substitute for planning the narration beat. |
 | `W_SCENE_LENGTH` | Keep a scene at or below 20 seconds unless it includes meaningful move/scale/rotate or camera motion; always split scenes longer than 60 seconds. |

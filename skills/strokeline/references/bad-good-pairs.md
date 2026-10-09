@@ -42,6 +42,25 @@ SAY "The system sends a response."
   DURATION 2s
 ```
 
+## Mistaking `RAW` for an INK mode
+
+**Bad — expected `E_INVALID_POINTS`; `RAW` is parsed as an object name, not a mode:**
+
+```text
+INK RAW
+END
+```
+
+**Good — give the coordinate stroke an ID and complete point pairs:**
+
+```text
+INK accent_stroke
+  POINTS 100 200, 260 180, 420 240
+  COLOR #2E86AB
+  WIDTH 4
+END
+```
+
 ## Invalid shape property spelling
 
 **Bad — expected `E_UNKNOWN_PROP`:**

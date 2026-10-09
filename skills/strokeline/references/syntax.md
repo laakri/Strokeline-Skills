@@ -77,7 +77,7 @@ diagnosed; many numeric bounds and references are checked after parsing.
 | --- | --- | --- | --- |
 | Header | `VERSION`, `CANVAS`, `BACKGROUND`, `STYLE`, `FONT`, `STROKE`, `BOARD`, `HAND`, `THEME`, `SUBTITLES` | Unknown theme/style/board names are not comprehensively rejected; use documented app values. | Missing/unsupported version or canvas; invalid canvas dimensions or `SUBTITLES` value. |
 | `CREATE id AS type` and direct shape statements | Shared: `POSITION`, `COLOR`, `STROKE`, `OPACITY`, `DRAW`, `REVEAL`, `PEN`; opt-in `ROUGH`, `ROUGHNESS`, `ROUGHSEED`, `BOWING`, `ROUGHFILL`, `PENFOLLOW`, and shape-specific columns below. | `ROUGHNESS` is 0..4; `ROUGHSEED` is an integer. `ROUGHFILL hachure|cross-hatch|zigzag|dots|solid` uses Rough.js patterns and requires `FILL #hex`; pattern fills appear after the outline completes. Rough sampled draw-on reveals edge groups in order, synchronizing duplicate sketch passes while the pen follows the main pass. `TEXT` on a non-text shape is a centered shape label where that shape renders labels. `LABEL` supplies a label where supported. | Unknown type/property; missing required position/size; nonpositive size/radius; invalid opacity, fit, anchor, gradient/shadow, or other checked range. |
-| `INK id` | `POINTS`, `COLOR`, `WIDTH`, `DRAW`, `FREEHAND`, `INKSIZE`, `THINNING`, `SMOOTHING`, `STREAMLINE`, `TAPER`, `PENFOLLOW` | Freehand controls apply only with `FREEHAND on`; omitted values preserve defaults. | Fewer than two points; thinning outside -0.9..0.9; smoothing/streamline outside 0..1. |
+| `INK id` | `POINTS`, `COLOR`, `WIDTH`, `DRAW`, `FREEHAND`, `INKSIZE`, `THINNING`, `SMOOTHING`, `STREAMLINE`, `TAPER`, `PENFOLLOW` | This is the raw coordinate-stroke form: `id` is a name, not a mode. Add `POINTS` with at least two complete `x y` pairs. `RAW` is not a keyword or mode. Freehand controls apply only with `FREEHAND on`; omitted values preserve defaults. | Fewer than two complete points; the name `RAW` without `POINTS`; thinning outside -0.9..0.9; smoothing/streamline outside 0..1. |
 | `ARROW from -> to` | `ROUTE`, `VIA`, `HEAD`, `LINESTYLE`, `LABEL`, `SOURCELABEL`, `TARGETLABEL`, `COLOR`, `STROKE`, `PEN`, `DRAW`, `REVEAL` | Other globally known properties are parsed but ignored. | Missing `->`/endpoint; unresolved or later endpoint; invalid route, head, line style, width, or waypoint list. |
 | `TABLE id` | `POSITION`, `SIZE width height`, `COLUMNS`, `ROW`, `DIVIDER`, `HEADERCOLOR`, `ALIGN`, `COLOR`, `FILL`, `STROKE`, `PEN`, `OPACITY`, `HIGHLIGHT`, `DRAW`, `REVEAL` | Other globally known properties are parsed but ignored. | Missing columns; row cell count differs from header; invalid divider/highlight/alignment/size. |
 | `BARCHART`, `LINECHART`, `PIECHART` | `POSITION`, `SIZE`, repeated `DATA label value` rows. | Other chart properties are not supported. | Unknown chart property, malformed numeric values, or missing `END`. |
@@ -92,6 +92,18 @@ diagnosed; many numeric bounds and references are checked after parsing.
 | `DUPLICATE id FROM source` | Source object plus overrides: `POSITION`, `WIDTH`, `HEIGHT`, `RADIUS`, `COLOR`, `FILL`, `STROKE`, `SIZE`, `TEXT`, `LABEL`. | `GRADIENT` and `SHADOW` are applied only when at least one of `COLOR`, `FILL`, `STROKE`, or `SIZE` is also overridden; otherwise they are parsed but ignored. Other globally known overrides are ignored. | Missing source, duplicate ID. |
 | `DELETE id` | Target and optional `DURATION`. | Unknown properties do not affect deletion. | Unknown target or invalid duration. |
 | `INK` | `POINTS`; modes `ARROW FROM x y TO x y`, `UNDERLINE id`, `CIRCLE id`; `COLOR`, `WIDTH`, `PEN`, `DRAW`, `REVEAL`, opt-in `FREEHAND on`, `PENFOLLOW on`. | `UNDERLINE` and `CIRCLE` derive geometry from an existing target. `FREEHAND on` uses deterministic variable-width perfect-freehand ink; omitted preserves the legacy ink renderer. | Too few/invalid points, identical arrow points, unknown/unmeasurable target. |
+
+Raw coordinate strokes use a named object and explicit points. Do not write
+`INK RAW`; the parser treats `RAW` as an object name, not as a drawing mode.
+
+```text
+INK accent_stroke
+  POINTS 100 200, 260 180, 420 240
+  COLOR #2E86AB
+  WIDTH 4
+  DRAW 0.8s
+END
+```
 
 ### Shape-specific properties
 

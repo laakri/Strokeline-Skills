@@ -17,6 +17,8 @@ review.
 - [ ] Every statement/property is documented for that construct in
       [syntax.md](syntax.md); when uncertain, check the matrix or omit it.
 - [ ] IDs are unique within each scene; all references point to prior objects.
+- [ ] Raw coordinate ink uses `INK <id>` with at least two `POINTS` pairs;
+      `INK RAW` is not valid syntax.
 - [ ] Every table row has the `COLUMNS` cell count; every required shape/image
       has valid dimensions.
 - [ ] Arrow direction, multiplicity endpoints, table divider indexes, and
@@ -56,6 +58,8 @@ Resolve every warning or explain why it is intentional:
 - [ ] `W_LOW_CONTRAST`: raise text/background contrast to at least 4.5:1.
 - [ ] `W_REELS_UI_OVERLAP`: keep vertical text below top 125px, above bottom 200px, and left of rightmost 60px; preview the platform overlay.
 - [ ] `W_SAY_ECHO`: make narration explain why/how/consequence rather than repeat on-screen words.
+- [ ] `W_LOW_CONTRAST`: check every reported foreground/background pair; use
+      a darker/lighter text color or a contrasting text plate.
 - [ ] `W_SAY_FAST`: shorten narration or increase duration to at most four words per second.
 - [ ] `W_SAY_OVERLAP`: schedule voice-over as distinct intentional cues.
 - [ ] `W_SCENE_LENGTH`: split scenes longer than 60 seconds; for scenes above 20 seconds, ensure meaningful motion is genuinely part of the story.
